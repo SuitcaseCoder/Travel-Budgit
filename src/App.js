@@ -1,24 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch } from 'react-router-dom';
+
+import Header from './Components/header';
+import LandingPage from './Routes/landing-page';
+import CreateAccount from './Routes/create-acct-page';
+import TripsPage from './Routes/trips-page';
+import TripsSummaryPage from './Routes/trips-summary-page';
+import AddTrip from './Routes/add-trip-page';
+import AddExpense from './Routes/add-expense-page';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Header />
       </header>
+      <section class-name="main-section">
+
+        <Switch>
+          <Route exact path='/' component={LandingPage} />
+          <Route exact path='/create-account' component={CreateAccount} />
+          <Route exact path='/trips' component={TripsPage} />
+          <Route exact path='/trips-summary' component={TripsSummaryPage} />
+          <Route exact path='/new-trip' component={AddTrip} />
+          <Route exact path='/new-expense' component={AddExpense} />
+        </Switch>
+      </section>
     </div>
   );
 }
